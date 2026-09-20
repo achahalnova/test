@@ -1,0 +1,81 @@
+[
+  {
+    "id": "jee-main-mock-1",
+    "title": "JEE Main Mock Test 1",
+    "durationMinutes": 180,
+    "instructions": "This test contains 75 questions (20 MCQ and 5 Numerical per subject). Marking: +4 for correct, -1 for incorrect MCQ, 0 for incorrect Numerical.",
+    "sections": [
+      {
+        "id": "physics",
+        "name": "Physics",
+        "questions": [
+          {
+            "id": "p1",
+            "type": "mcq",
+            "text": "The dimensions of Planck's constant are equivalent to those of:",
+            "options": ["Energy", "Momentum", "Angular Momentum", "Power"],
+            "correctOptionIndex": 2,
+            "marks": { "correct": 4, "incorrect": -1 }
+          },
+          {
+            "id": "p2",
+            "type": "integer",
+            "text": "A block of mass 2 kg is pushed with a force of 10 N on a frictionless surface. What is the acceleration in m/s²?",
+            "correctAnswer": 5,
+            "marks": { "correct": 4, "incorrect": 0 }
+          }
+        ]
+      },
+      {
+        "id": "chemistry",
+        "name": "Chemistry",
+        "questions": [
+          {
+            "id": "c1",
+            "type": "mcq",
+            "text": "Which of the following is an intensive property?",
+            "options": ["Enthalpy", "Entropy", "Volume", "Temperature"],
+            "correctOptionIndex": 3,
+            "marks": { "correct": 4, "incorrect": -1 }
+          }
+        ]
+      },
+      {
+        "id": "math",
+        "name": "Mathematics",
+        "questions": [
+          {
+            "id": "m1",
+            "type": "mcq",
+            "text": "The value of integral of 2x dx from 0 to 2 is:",
+            "options": ["2", "4", "6", "8"],
+            "correctOptionIndex": 1,
+            "marks": { "correct": 4, "incorrect": -1 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neet-mock-1",
+    "title": "NEET Mock Test 1",
+    "durationMinutes": 200,
+    "instructions": "This test contains 200 questions. You have to attempt 180. Marking: +4 for correct, -1 for incorrect.",
+    "sections": [
+      {
+        "id": "biology",
+        "name": "Biology",
+        "questions": [
+          {
+            "id": "b1",
+            "type": "mcq",
+            "text": "The basic unit of classification is:",
+            "options": ["Species", "Genus", "Family", "Order"],
+            "correctOptionIndex": 0,
+            "marks": { "correct": 4, "incorrect": -1 }
+          }
+        ]
+      }
+    ]
+  }
+]
