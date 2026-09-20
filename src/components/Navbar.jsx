@@ -29,6 +29,7 @@ export default function Navbar() {
           <Link to="/" className="nav-link"><Home size={18}/> Home</Link>
           <Link to="/programs" className="nav-link"><BookOpen size={18}/> Programs</Link>
           <Link to="/contact" className="nav-link"><Phone size={18}/> Contact</Link>
+          <Link to="/tests" className="nav-link">Mock Tests</Link>
           {user ? (
             <Link to="/dashboard" className="nav-link btn"><User size={18}/> Dashboard</Link>
           ) : (
