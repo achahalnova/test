@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import MockTests from './pages/MockTests';
+import Programs from './pages/Programs';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tests" element={<MockTests />} />
-          {/* We will add more pages like /programs, /about, /contact in later phases */}
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
