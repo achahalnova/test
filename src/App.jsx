@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import MockTests from './pages/MockTests';
 import Programs from './pages/Programs';
 import Contact from './pages/Contact';
+import Auth from './pages/Auth';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/tests" element={<MockTests />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Auth />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

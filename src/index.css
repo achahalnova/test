@@ -565,3 +565,35 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Auth Page --- */
+.auth-card {
+  background: var(--surface);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.reset-button {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+.reset-button:hover {
+  color: var(--primary-hover) !important;
+}
+
+.error-msg {
+  background: #fef2f2;
+  color: var(--danger);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  border: 1px solid #fca5a5;
+}

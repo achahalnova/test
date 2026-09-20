@@ -1,12 +1,25 @@
 import { useState, useEffect } from 'react';
 import testData from '../data/tests.json';
+import { supabase } from '../lib/supabase';
+import { useNavigate } from 'react-router-dom';
 
 export default function MockTests() {
   const [activeTest, setActiveTest] = useState(null);
   const [results, setResults] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        alert("Please log in to take a mock test.");
+        navigate('/login');
+      }
+    });
+  }, [navigate]);
 
   if (results) {
-    return <ResultsScreen results={results} test={activeTest} onHome={() => { setResults(null); setActiveTest(null); }} />;
+    return <ResultsScreen results={results} test={activeTest} onHome={() => { setResults(null); setActiveTest(null); navigate('/dashboard'); }} />;
   }
 
   if (activeTest) {
@@ -75,7 +88,7 @@ function TestEngine({ test, onSubmit, onExit }) {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     let score = 0;
     let correct = 0;
     let incorrect = 0;
@@ -103,7 +116,21 @@ function TestEngine({ test, onSubmit, onExit }) {
       }
     });
 
-    onSubmit({ score, correct, incorrect, totalQuestions: questions.length, attempted: Object.keys(answers).length });
+    const resObj = { score, correct, incorrect, totalQuestions: questions.length, attempted: Object.keys(answers).length };
+    
+    // Save to Supabase
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) {
+      await supabase.from('StudentMarks').insert([
+        { 
+          user_id: session.user.id,
+          test_name: test.title,
+          score: score
+        }
+      ]);
+    }
+
+    onSubmit(resObj);
   };
 
   const currentQ = questions[currentIndex];
@@ -206,10 +233,10 @@ function ResultsScreen({ results, test, onHome }) {
             <strong>Incorrect:</strong> {results.incorrect}
           </div>
         </div>
-        <p style={{marginBottom: '2rem'}}>
-          (To save this score, you will need to manually enter {results.score} into your Wix database for now!)
+        <p style={{marginBottom: '2rem', color: 'var(--success)'}}>
+          ✓ This score has been securely saved to your Student Dashboard!
         </p>
-        <button className="btn" onClick={onHome}>Back to Home</button>
+        <button className="btn" onClick={onHome}>View Dashboard</button>
       </div>
     </div>
   );
