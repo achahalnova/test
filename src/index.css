@@ -597,3 +597,61 @@ body {
   font-size: 0.95rem;
   border: 1px solid #fca5a5;
 }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .navbar {
+    height: auto;
+    position: static; /* Make it scroll with page on mobile so it doesn't block content */
+  }
+  .main-content-wrapper {
+    padding-top: 0;
+  }
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  
+  /* Home Page Hero */
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+  .hero-section h1 {
+    font-size: 2.25rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  /* Test Engine */
+  .engine-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 1rem;
+  }
+  .header-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .action-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .sidebar {
+    margin-top: 2rem;
+  }
+  
+  /* Auth Card */
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+}
